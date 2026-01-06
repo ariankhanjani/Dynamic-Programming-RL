@@ -1,0 +1,13 @@
+
+
+
+Update README.md and rename experiments folder
+
+- rename experiments folder to notebooks
+- add environment GIF file
+- modify .gitignore
+- add requirements.txt
+
+
+.Add psudo code of VI and PI
+.Add plot policy
