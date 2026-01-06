@@ -78,21 +78,24 @@ def plot_heatmap(V, title="State Value Heatmap"):
     plt.show()
 
 
-def plot_convergence(deltas_pi, deltas_vi):
-    plt.figure(figsize=(7, 5))
-
-    # PI curve — solid blue with markers
+def plot_convergence(deltas_pi, deltas_vi, env_name="Environment"):
+    plt.figure(figsize=(10, 6))
+    
+    # Policy Iteration: plot per policy evaluation cycle
     plt.plot(
+        range(1, len(deltas_pi) + 1),
         deltas_pi,
         label='Policy Iteration',
         linestyle='-',
-        linewidth=2,
+        linewidth=2.5,
         marker='o',
-        markersize=3
+        markersize=6,
+        color='blue'
     )
-
-    # VI curve — dashed red line
+    
+    # Value Iteration: plot per sweep
     plt.plot(
+        range(1, len(deltas_vi) + 1),
         deltas_vi,
         label='Value Iteration',
         linestyle='--',
@@ -100,11 +103,12 @@ def plot_convergence(deltas_pi, deltas_vi):
         color='red'
     )
     
-    plt.xlabel('Iterations / Sweeps')
-    plt.ylabel('Max Δ')
-    plt.title('Convergence Curves')
+    plt.xlabel('Iterations (PI: per policy improvement cycle | VI: per sweep)')
+    plt.ylabel('Max Δ (Change in Value Function)')
+    plt.title(f'Convergence Comparison: {env_name}')
     plt.grid(True, alpha=0.4)
     plt.legend()
+    plt.yscale('log') # Log scale for better visibility
     plt.tight_layout()
     plt.show()
     
