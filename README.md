@@ -37,7 +37,7 @@ Installation
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/dynamic_programming_rl.git
+git clone https://github.com/ariankhanjani/dynamic-programming-rl.git
 cd dynamic_programming_rl
 ```
 
